@@ -1,0 +1,68 @@
+<div class="flex flex-wrap	 align-items-center justify-content-center ">
+  <div class="Elevate flex font-bold align-items-center justify-content-center	surface-ground  ">
+    <div class="flex flex-column align-items-center justify-content-center">
+      <div class="Welcome flex flex-column ">
+        <div class="text-6xl	font-bold	line-height-4	text-color	">Welcome to</div>
+        <div class="text-6xl	font-bold	line-height-4	text-indigo-700 ">Elevate</div>
+        <p class="text-xl		font-normal	line-height-1	text-color">Quidem autem voluptatibus qui quaerat aspernatur <br>
+          architecto natus</p>
+        <img class="w-25rem h-27rem" src="../../../../assets/images/bro.png" alt="" srcset="">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- sign in -->
+  <div class="sigin flex align-items-center justify-content-center  ">
+    <div class="surface-card p-4 mt-5 w-25rem h-30rem ">
+      <div class="mb-3">
+        <div class="text-900 text-3xl font-bold mb-3 line-height-4">Sign in</div>
+      </div>
+
+      <div [formGroup]="LoginForm">
+
+        <div class="h-3rem">
+          <label for="email1" class="block text-900 font-medium mb-2"></label>
+          <input id="email1" type="text" placeholder="Email address" pInputText class="w-full mb-3" class="form-control"
+            formControlName="email">
+          @if (LoginForm.get('email')?.errors && LoginForm.get('email')?.touched) {
+          <div class="alert alert-danger">
+            @if (LoginForm.get('email')?.getError('required')) {
+            <small> Email is required</small>
+            }
+            @else if (LoginForm.get('email')?.getError('email')) {
+            <small> Enter a valid email </small>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="h-3rem	">
+          <label for="password" class="block text-900 font-medium mb-2"></label>
+          <input id="password" type="password" placeholder="Password" pInputText class="w-full mb-3"
+            class="form-control" formControlName="password">
+
+          @if (LoginForm.get('password')?.errors && LoginForm.get('password')?.touched) {
+          <div class="alert alert-danger">
+            @if (LoginForm.get('password')?.getError('required')) {
+            <small> Password is required</small>
+            }
+            @else if (LoginForm.get('password')?.getError('pattern')) {
+            <small> Password must contain at least 8 characters, including uppercase, lowercase, a number, and a special
+              character </small>
+            }
+          </div>
+          }
+        </div>
+        <button [disabled]="LoginForm.invalid" (click)="Loginsubmit()" type="submit" pButton pRipple
+          label="Login" icon="pi pi-user" class="mt-2  w-full">
+        </button>
+        @if (msgerror) {
+        <p class="alert alert-danger">{{msgerror}}</p>
+        }
+        <a routerLink="/foregetpassword">forget password</a>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+<div class="flex flex-wrap	align-items-center justify-content-center ">
+  <div class="Elevate flex font-bold align-items-center justify-content-center	surface-ground  ">
+    <div class="flex flex-column align-items-center justify-content-center">
+      <div class="Welcome flex flex-column ">
+        <div class="text-6xl	font-bold	line-height-4	text-color	">Welcome to</div>
+        <div class="text-6xl	font-bold	line-height-4	text-indigo-700 ">Elevate</div>
+        <p class="text-xl		font-normal	line-height-1	text-color">Quidem autem voluptatibus qui quaerat aspernatur <br>
+          architecto natus</p>
+        <img class="w-25rem h-27rem" src="../../../../assets/images/bro.png" alt="" srcset="">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- sign in -->
+  <div class="sigin flex align-items-center justify-content-center  ">
+    <div class="surface-card p-4  w-full lg:w-6 mt-5">
+      <div class="mb-3">
+        <div class="text-900 text-3xl font-bold line-height-4">Sign Up</div>
+      </div>
+    
+      <div [formGroup]="RegisterForm">
+        <div class="h-3rem">
+          <label for="User Name" class="block text-900 font-medium mb-2"></label>
+          <input id="User Name" type="text" placeholder="User Name" pInputText class="w-full mb-3" class="form-control"
+            formControlName="username">
+    
+          @if (RegisterForm.get('username')?.errors && RegisterForm.get('username')?.touched ) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('username')?.getError('required')) {
+            <small>User Name is required</small>
+            }
+            @else if (RegisterForm.get('username')?.getError('minlength')) {
+            <small>>Minimum 4 characters required</small>
+            }
+            @else if (RegisterForm.get('username')?.getError('maxlength')) {
+            <small>maxlength 10 characters required</small>
+            }
+          </div>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="First Name" class="block text-900 font-medium mb-2"></label>
+          <input id="First Name" type="text" placeholder="First Name" pInputText class="w-full mb-3" class="form-control"
+            formControlName="firstName">
+    
+          @if (RegisterForm.get('firstName')?.errors && RegisterForm.get('firstName')?.touched ) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('firstName')?.getError('required')) {
+            <small>First Name is required</small>
+            }
+            @else if (RegisterForm.get('firstName')?.getError('minlength')) {
+            <small>>Minimum 4 characters required</small>
+            }
+            @else if (RegisterForm.get('firstName')?.getError('maxlength')) {
+            <small>maxlength 10 characters required</small>
+            }
+          </div>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="Last Name" class="block text-900 font-medium mb-2"></label>
+          <input id="Last Name" type="text" placeholder="Last Name" pInputText class="w-full mb-3" class="form-control"
+            formControlName="lastName">
+          @if (RegisterForm.get('lastName')?.errors && RegisterForm.get('lastName')?.touched ) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('lastName')?.getError('required')) {
+            <small>Last Name is required</small>
+            }
+            @else if (RegisterForm.get('lastName')?.getError('minlength')) {
+            <small>>Minimum 4 characters required</small>
+            }
+            @else if (RegisterForm.get('lastName')?.getError('maxlength')) {
+            <small>maxlength 10 characters required</small>
+            }
+          </div>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="email1" class="block text-900 font-medium mb-2"></label>
+          <input id="email1" type="text" placeholder="Email address" pInputText class="w-full mb-3" class="form-control"
+            formControlName="email">
+          @if (RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('email')?.getError('required')) {
+            <small> Email is required</small>
+            }
+            @else if (RegisterForm.get('email')?.getError('email')) {
+            <small> Enter a valid email </small>
+            }
+          </div>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="password" class="block text-900 font-medium mb-2"></label>
+          <input id="password" type="password" placeholder="Password" pInputText class="w-full mb-3" class="form-control"
+            formControlName="password">
+    
+          @if (RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('password')?.getError('required')) {
+            <small> Password is required</small>
+            }
+            @else if (RegisterForm.get('password')?.getError('pattern')) {
+            <small> Password must contain at least 8 characters, including uppercase, lowercase, a number, and a special
+              character </small>
+            }
+          </div>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="Confirm password" class="block text-900 font-medium mb-2"></label>
+          <input id="Confirm password" type="password" placeholder="Confirm password" pInputText class="w-full mb-3"
+            class="form-control" formControlName="rePassword">
+    
+          @if (RegisterForm.getError('mismatch') && RegisterForm.get('repassword')?.touched) {
+          <small class="alert alert-danger"> Confirm password is incorrect</small>
+          }
+        </div>
+    
+        <div class="h-3rem">
+          <label for="phone number" class="block text-900 font-medium mb-2"></label>
+          <input id="phone number" type="text" placeholder="phone" pInputText class="w-full mb-3" class="form-control"
+            formControlName="phone">
+    
+          @if (RegisterForm.get('phone')?.errors && RegisterForm.get('phone')?.touched ) {
+          <div class="alert alert-danger">
+            @if (RegisterForm.get('phone')?.getError('required')) {
+            <small>User Name is required</small>
+            }
+          </div>
+          }
+        </div>
+    
+        <button [disabled]="RegisterForm.invalid" (click)="Registersubmit()" type="submit" pButton pRipple label="Creat Account" icon="pi pi-user"
+          class="mt-2  w-full">
+        </button>
+          @if (msgerror) {
+            <p class="alert alert-danger">{{msgerror}}</p>
+          }
+      </div>
+    </div> 
+
+  </div>
+</div>
