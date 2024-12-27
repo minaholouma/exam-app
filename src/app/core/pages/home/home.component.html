@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class=" w-11 flex justify-content-center mt-5 m-auto">
+  <div class="dashboard w-full flex justify-content-center 	">
+    <h1 class="dash align-content-center">DashBoard</h1>
+  </div>
+</div>
+
+<div class="flex justify-content-center ">
+  <app-sidebar></app-sidebar>
+  <div class="homepage flex justify-content-center flex-column w-11 m-auto mt-3 ">
+    <div class=" flex justify-content-center w-11 m-auto mt-3 ">
+      <div class="card w-8 flex justify-content-end 	  m-auto">
+        <p-menubar>
+          <span class="p-input-icon-right">
+            <input type="text" pInputText placeholder="Search">
+            <i class="pi pi-search"></i>
+          </span>
+          <button class="startquiz">start quiz</button>
+          <img class="image" src="../../../../assets/images/Rectangle 289.png" />
+        </p-menubar>
+      </div>
+    </div>
+    
+    <div class="card flex flex-row w-8 m-auto mt-3 flex-wrap justify-content-center align-items-center ">
+      @for (item of SubList ; track $index) {
+      <div id="container" style="position: relative;"
+        class=" flex flex-column justify-content-center align-content-center m-auto  mt-3">
+        <div id="background">
+          <img class="card-img-top" [src]="item.icon" alt="Card image">
+        </div>
+        <div id="text" class="textcontent p-2">
+          <span>{{item.name}}</span>
+          <p>Lorem ipsum dolor, sit amet .</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

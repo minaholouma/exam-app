@@ -33,7 +33,7 @@ userdata:any = null ;
   if(localStorage.getItem ('usertoken')!== null){
    this.userdata= jwtDecode(localStorage.getItem ('usertoken')!)
   }
-  }
+   }
 
 
   setVerifyEmail(data:any):Observable<any>{
@@ -47,5 +47,11 @@ userdata:any = null ;
 
   setresetpassword(data:any):Observable<any>{
     return (this._httpClient.put(AuthEndpoint.resetPassword,data) )
+  }
+
+
+  logout():void{
+    localStorage.removeItem('usertoken');
+    this.userdata= null;
   }
 }

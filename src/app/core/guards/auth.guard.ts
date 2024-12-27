@@ -6,7 +6,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 let _Router = inject(Router)
 
 
-if(typeof localStorage !== undefined){
+if(typeof window !== "undefined" && typeof localStorage !== "undefined"){
   if(localStorage.getItem('usertoken') !== null){
     return true;
   

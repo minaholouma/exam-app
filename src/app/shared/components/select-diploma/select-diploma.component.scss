@@ -1,0 +1,33 @@
+.dashboard{
+    background-color:  rgba(68, 97, 242, 1);
+    
+}
+
+.dash{
+    width: 345px;
+height: 130.99px;
+top: -388.81px;
+left: 4398px;
+gap: 0px;
+opacity: 0px;
+font-size: 60px;
+font-weight: 700;
+line-height: 90px;
+text-align: left;
+text-decoration-skip-ink: none;
+color: rgba(255, 255, 255, 1);
+
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .row{ 
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

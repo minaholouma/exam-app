@@ -1,0 +1,54 @@
+<div class="btn btn-primary" (click)="openModal()">Start Quiz</div>
+
+<div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" *ngIf="this.currentQuestionIndex < this.questions.length - 1">
+        <h5 class="modal-title" id="quizModalLabel">Front-End Quiz</h5>
+        <span class="timer">14:59</span>
+      </div>
+      <div class="modal-header" *ngIf="!(this.currentQuestionIndex < this.questions.length - 1)">
+        <h5 class="modal-title" id="quizModalLabel">Your Score</h5>
+      </div>
+      <div class="modal-body" *ngIf="!isFinish">
+        <h4>
+          Question {{ currentQuestionIndex + 1 }}:
+          {{ questions[currentQuestionIndex].question }}
+        </h4>
+        <form [formGroup]="quizForm">
+
+          <div *ngFor="let answer of questions[currentQuestionIndex].answers;let ii=index" class="form-check" >
+            <ng-container formArrayName="answers" >
+              <div [formGroupName]="currentQuestionIndex">
+                <input type="radio" id="correct" name="correct" formControlName="correct" [value]="answer.key"/>
+                <label class="form-check-label" [for]="answer.key + currentQuestionIndex">
+                  {{ answer.answer }}
+                </label>
+              </div>
+            </ng-container>
+            
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+            <button class="btn btn-primary" (click)="onNext()" [disabled]="currentQuestionIndex == questions.length - 1">
+              Next
+            </button>
+            <button class="btn btn-success" [disabled]="currentQuestionIndex != questions.length - 1" (click)="onSubmit()">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-body" *ngIf="isFinish">
+        <h2>total</h2>
+        <span>{{checkQuestion.total}}</span>
+        <h2>correct</h2>
+        <span>{{checkQuestion.correct}}</span>
+        <h2>incorrect</h2>
+        <span>{{checkQuestion.wrong}}</span>
+      </div>
+
+    </div>
+  </div>
+</div>

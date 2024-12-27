@@ -1,0 +1,42 @@
+.sidebar {
+    // position: fixed;
+    width: 300px;
+    text-decoration: none;
+}
+
+
+.dashboard{
+    width: 193px;
+height: 46px;
+padding: 8px 0px 0px 0px;
+border-radius: 10px ;
+background: rgba(68, 97, 242, 1);
+}
+
+.quiz{
+    width: 193px;
+    height: 46px;
+    padding: 8px 0px 0px 0px;
+    border-radius: 10px ;
+}
+.Logout{
+    width: 193px;
+    height: 46px;
+    padding: 8px 0px 0px 0px;
+    border-radius: 10px ;
+}
+
+@media (max-width: 768px) {
+       .sidebar { display: none; }
+    }
+
+
+
+    @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }}
+
+
+
+/////////////////////////////////////////////////////////////////////////////

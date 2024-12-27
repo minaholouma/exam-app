@@ -1,0 +1,32 @@
+<div class=" w-11 flex justify-content-center mt-5 m-auto">
+    <div class="dashboard w-full flex justify-content-center align-content-center 	">
+        <p class="dash w-full flex justify-content-center align-content-center m-auto">Select-Diploma</p>
+    </div>
+</div>
+
+<div class="row col-12">
+    <div class="col-3">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+        <div class="contaner ">
+            <div class="flex flex-column justify-content-center  justify-content-between w-6 m-auto">
+                @for (item of ExamList; track $index) {
+                <div class="flex justify-content-between  ">
+                    <div class="quiz flex justify-content-center	">
+                        <img src="../../../../assets/images/skill-icons_html.png" class="p-2" alt="" srcset="">
+                        <div>
+                            <p>{{item.title}}</p>
+                            <span>{{item.duration}}</span>
+                        </div>
+                    </div>
+                    <div class="start flex flex-column">
+                        <span>15 minute</span>
+                        <app-modal [isVisible]="isModalVisible"></app-modal>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
