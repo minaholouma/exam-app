@@ -1,8 +1,9 @@
-import { Component,  HostListener,  inject,  } from '@angular/core';
+import { Component,  inject,  } from '@angular/core';
 import { AuthApiService } from '../../../../../projects/auth-api/src/public-api';
 import { ImageModule } from 'primeng/image';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,8 +21,7 @@ export class SidebarComponent {
     
 
 
-   isScrolledHorizontally = false;
-  
+
    }
 
 
